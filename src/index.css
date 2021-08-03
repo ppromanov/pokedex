@@ -5,9 +5,111 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('https://ahost2.bulbagarden.net/content/bulbagarden/images/bg-green-2x-optim.png'),
+    linear-gradient(180deg, #e5f1ec 0%, #e5f1ec 322px, #d1e5d9 322px) !important;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+li {
+  list-style: none;
+  margin: 1vh;
+}
+.card {
+  padding: 1vh;
+  min-width: 15vh;
+  border: 2px solid black;
+  border-radius: 10%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.grass {
+  background-color: #78c850;
+}
+.water {
+  background-color: #6890f0;
+}
+.bug {
+  background-color: #a8b820;
+}
+.fighting {
+  background-color: #c03028;
+}
+.flying {
+  background-color: #a890f0;
+}
+.normal {
+  background-color: #a8a878;
+}
+.poison {
+  background-color: #a040a0;
+}
+.electric {
+  background-color: #f8d030;
+}
+.ground {
+  background-color: #b8a038;
+}
+.psychic {
+  background-color: #f85888;
+}
+.rock {
+  background-color: #b8a038;
+}
+.fire {
+  background-color: #f08030;
+}
+.ice {
+  background-color: #98d8d8;
+}
+.bug {
+  background-color: #a8b820;
+}
+.dragon {
+  background-color: #7038f8;
+}
+.ghost {
+  background-color: #705898;
+}
+.dark {
+  background-color: #705848;
+}
+.steel {
+  background-color: #b8b8d0;
+}
+.fairy {
+  background-color: #ee99ac;
+}
+.stat {
+  background-color: snow;
+  border: 1px solid black;
+}
+
+.poke-avatar {
+  background-color: snow;
+  border: 1px solid;
+  border-radius: 30%;
 }

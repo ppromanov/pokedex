@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import { IPokemon } from './interfaces/pokemon';
+import PokeList from './components/PokeList';
+import CounterButtons from './components/CounterButtons';
 
-function App() {
+const App: React.FC = () => {
+  const [pokeBase, setPokeBase] = useState<IPokemon[]>([]);
+  const [counter, setCounter] = useState<number>(10);
+
+  const selectCounter = (num: number) => {
+    setCounter(num);
+  };
+
+  const fetchPokeBase = async () => {
+    for (let id = 1; id <= 50; id++) {
+      const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
+      const res = await fetch(url);
+      const resPokemon = await res.json();
+      const pokemon: IPokemon = {
+        id: id,
+        name: resPokemon.name,
+        type: resPokemon.types[0].type.name,
+        image: resPokemon.sprites.front_default,
+      };
+      setPokeBase((prev) => [...prev, pokemon]);
+    }
+  };
+
+  useEffect(() => {
+    fetchPokeBase();
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CounterButtons count={selectCounter} />
+      <PokeList pokeList={pokeBase} counter={counter} />
     </div>
   );
-}
+};
 
 export default App;
