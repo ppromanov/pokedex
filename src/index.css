@@ -32,15 +32,35 @@ ul {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-left: -1.5vh;
 }
 
 li {
   list-style: none;
   margin: 1vh;
 }
+
+.modal {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.modal__content {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: snow;
+  width: 200px;
+  height: 200px;
+}
+
 .card {
   padding: 1vh;
   min-width: 15vh;
+  max-width: 15vh;
   border: 2px solid black;
   border-radius: 10%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
