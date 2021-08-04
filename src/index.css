@@ -33,6 +33,7 @@ code {
 }
 
 .list {
+  padding-left: 10px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -50,10 +51,9 @@ code {
 }
 
 .card {
-  margin: 1vh;
+  margin: 5px;
   padding: 1vh;
-  min-width: 15vh;
-  max-width: 15vh;
+  width: 150px;
   border: 2px solid black;
   border-radius: 5%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -187,4 +187,11 @@ code {
   font-size: 20px;
   padding: 1vh;
   width: 100%;
+}
+
+.searchbar {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  justify-content: space-around;
 }
