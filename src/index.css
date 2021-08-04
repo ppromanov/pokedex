@@ -17,6 +17,10 @@ code {
   text-align: center;
 }
 
+.buttons {
+  margin: 10px;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -28,42 +32,37 @@ code {
   color: white;
 }
 
-ul {
+.list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-left: -1.5vh;
+  margin: auto;
 }
 
-li {
-  list-style: none;
-  margin: 1vh;
-}
-
-.modal {
-  height: 100vh;
-  width: 100vw;
-  background-color: rgba(0, 0, 0, 0.4);
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
-.modal__content {
-  padding: 20px;
+.info-card {
+  background-image: url('./img/pokeball.png');
+  margin-top: 10%;
+  margin-left: 35%;
+  position: absolute;
   border-radius: 10px;
-  background-color: snow;
-  width: 200px;
-  height: 200px;
+  padding: 2px 4px 3px;
+  display: flex;
 }
 
 .card {
+  margin: 1vh;
   padding: 1vh;
   min-width: 15vh;
   max-width: 15vh;
   border: 2px solid black;
-  border-radius: 10%;
+  border-radius: 5%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.txt {
+  margin-top: 10px;
+  margin-bottom: -15px;
+  padding: -10px;
 }
 
 .grass {
@@ -124,12 +123,68 @@ li {
   background-color: #ee99ac;
 }
 .stat {
+  padding: 0 5px;
   background-color: snow;
   border: 1px solid black;
 }
-
 .poke-avatar {
   background-color: snow;
-  border: 1px solid;
+  border: 1px solid black;
   border-radius: 30%;
+}
+.avatar {
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  margin-right: -1vh;
+  margin-left: 3vh;
+  justify-content: space-between;
+}
+
+.info-avatar {
+  width: 15vh;
+  background-color: snow;
+  border: 1px solid black;
+  border-radius: 50%;
+  margin-top: 30%;
+}
+.data {
+  background-color: snow;
+  border: 1px solid black;
+  border-bottom-left-radius: 5px;
+  width: 100%;
+  max-height: 40%;
+  min-width: none;
+}
+.types {
+  margin-top: -20px;
+  margin-bottom: -20px;
+  display: flex;
+}
+.name {
+  height: 25%;
+  width: 100%;
+}
+.stats {
+  margin-top: 2vh;
+  margin-bottom: 1vh;
+  border: 1px solid black;
+  background-color: snow;
+  border-top-right-radius: 5px;
+}
+.abilities {
+  width: 20vh;
+  border: 1px solid black;
+  background-color: snow;
+  margin-bottom: 2vh;
+  border-bottom-right-radius: 5px;
+}
+.single-type {
+  font-size: 20px;
+  padding: 1vh;
+  width: 100%;
 }

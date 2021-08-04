@@ -1,5 +1,6 @@
+import { Box, Container } from '@material-ui/core';
 import React from 'react';
-import { IPokemon } from '../interfaces/pokemon';
+import { IPokemon } from '../interfaces/interfaces';
 import PokeCard from './PokeCard';
 
 type PokeArr = {
@@ -12,11 +13,11 @@ const PokeList: React.FC<PokeArr> = ({ pokeList, counter, chose }) => {
   const pokeArr = pokeList.slice(0, counter);
 
   return (
-    <ul>
+    <Box className="list">
       {pokeArr.map((pokemon) => {
         return <PokeCard key={pokemon.id} pokemon={pokemon} chose={chose} />;
       })}
-    </ul>
+    </Box>
   );
 };
 

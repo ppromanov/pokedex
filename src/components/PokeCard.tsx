@@ -1,5 +1,6 @@
 import React from 'react';
-import { IPokemon } from '../interfaces/pokemon';
+import { IPokemon } from '../interfaces/interfaces';
+import { Grid } from '@material-ui/core';
 
 type Card = {
   pokemon: IPokemon;
@@ -8,14 +9,21 @@ type Card = {
 
 const PokeCard: React.FC<Card> = ({ pokemon, chose }) => {
   return (
-    <li className={'card ' + pokemon.type} onClick={() => chose(pokemon.name)}>
+    <Grid
+      className={'card ' + pokemon.type}
+      onClick={() => {
+        chose(pokemon.name);
+      }}
+    >
       <img className="poke-avatar" src={pokemon.image} alt="blank" />
       <div className="stat">
-        <p>name: {pokemon.name}</p>
+        <p className="txt">Name</p>
+        <p>{pokemon.name}</p>
         <hr />
-        <p>type: {pokemon.type}</p>
+        <p className="txt">Type</p>
+        <p>{pokemon.type}</p>
       </div>
-    </li>
+    </Grid>
   );
 };
 
