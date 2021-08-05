@@ -20,31 +20,29 @@ const PokeList: React.FC<PokeArr> = ({
   typesQuery,
   currentCard,
 }) => {
-  return (
-    <Box className="list">
-      {nameQuery
-        ? pokeList.map((pokemon) => {
-            if (pokemon.name === nameQuery) {
-              return (
-                <PokeCard key={pokemon.id} pokemon={pokemon} chose={chose} />
-              );
-            }
-          })
-        : typesQuery.length !== 0
-        ? pokeList.map((pokemon) => {
-            if (typesQuery.includes(pokemon.type)) {
-              return (
-                <PokeCard key={pokemon.id} pokemon={pokemon} chose={chose} />
-              );
-            }
-          })
-        : currentCard.map((pokemon) => {
-            return (
-              <PokeCard key={pokemon.id} pokemon={pokemon} chose={chose} />
-            );
-          })}
-    </Box>
-  );
+  const getPokeCards = () => {
+    if (nameQuery) {
+      return pokeList.map((pokemon) => {
+        if (pokemon.name === nameQuery) {
+          return <PokeCard key={pokemon.id} pokemon={pokemon} chose={chose} />;
+        }
+      });
+    }
+
+    if (typesQuery.length !== 0) {
+      return pokeList.map((pokemon) => {
+        if (typesQuery.includes(pokemon.type)) {
+          return <PokeCard key={pokemon.id} pokemon={pokemon} chose={chose} />;
+        }
+      });
+    }
+
+    return currentCard.map((pokemon) => {
+      return <PokeCard key={pokemon.id} pokemon={pokemon} chose={chose} />;
+    });
+  };
+
+  return <Box className="list">{getPokeCards()}</Box>;
 };
 
 export default PokeList;

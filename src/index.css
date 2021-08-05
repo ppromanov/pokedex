@@ -13,6 +13,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.welcome {
+  margin-top: 20%;
+}
+
 .App {
   text-align: center;
 }
@@ -20,7 +25,6 @@ code {
 .buttons {
   margin: 10px;
 }
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -51,9 +55,9 @@ code {
 }
 
 .card {
-  margin: 5px;
-  padding: 1vh;
-  width: 150px;
+  margin: 4px;
+  padding: 5px;
+  width: 160px;
   border: 2px solid black;
   border-radius: 5%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -153,20 +157,19 @@ code {
   margin-top: 30%;
 }
 .data {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   background-color: snow;
   border: 1px solid black;
-  border-bottom-left-radius: 5px;
-  width: 100%;
-  max-height: 40%;
-  min-width: none;
+  width: 200px;
 }
 .types {
-  margin-top: -20px;
-  margin-bottom: -20px;
+  width: 100%;
+  height: 100%;
   display: flex;
 }
 .name {
-  height: 25%;
   width: 100%;
 }
 .stats {
@@ -174,18 +177,17 @@ code {
   margin-bottom: 1vh;
   border: 1px solid black;
   background-color: snow;
-  border-top-right-radius: 5px;
 }
 .abilities {
   width: 20vh;
   border: 1px solid black;
   background-color: snow;
   margin-bottom: 2vh;
-  border-bottom-right-radius: 5px;
 }
 .single-type {
   font-size: 20px;
-  padding: 1vh;
+  margin: 0;
+  padding: 5px;
   width: 100%;
 }
 
