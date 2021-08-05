@@ -4,7 +4,7 @@ import PokeList from './components/PokeList';
 import Buttons from './components/Buttons';
 import PokeInfo from './components/PokeInfo';
 import Pagination from './components/Pagination';
-import { fetchPokeBase, chosePokemon } from './promiseAll';
+import { chosePokemon, fetchBase } from './promiseAll';
 import Welcome from './components/Welcome';
 
 const App: React.FC = () => {
@@ -23,7 +23,7 @@ const App: React.FC = () => {
   const currentCard = pokeBase.slice(firstCardIndex, lastCardIndex);
 
   const loadPokemons = async (apiBase: IPokemon[]) => {
-    await fetchPokeBase(apiBase);
+    await fetchBase(apiBase);
     await setLoading(false);
     await setPokeBase(apiBase);
   };
@@ -57,7 +57,6 @@ const App: React.FC = () => {
           typesQuery={typeFilter}
           pokeList={pokeBase}
           currentCard={currentCard}
-          cardsPerPage={cardsPerPage}
           chose={loadPokemon}
           nameQuery={nameQuery}
         />

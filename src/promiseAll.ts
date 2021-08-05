@@ -2,19 +2,24 @@ import { IPokemon, ICard } from './interfaces/interfaces';
 
 const api = 'https://pokeapi.co/api/v2/pokemon';
 
-export const fetchPokeBase = async (pokeBase: IPokemon[]) => {
-  for (let id = 1; id <= 898; id++) {
-    const res = await fetch(`${api}/${id}`);
-    const resPokemon = await res.json();
+export const fetchBase = async (base: IPokemon[]) => {
+  let pokeArr: any[];
+  const res = await fetch(`${api}/?offset=0&limit=1118`);
+  const resPokemons = await res.json();
+  pokeArr = Object.values(resPokemons.results);
+
+  for (let i = 0; i < pokeArr.length; i++) {
+    const singlePokemon = await fetch(pokeArr[i].url);
+    const resPokemon = await singlePokemon.json();
     const pokemon: IPokemon = {
-      id: id,
+      id: resPokemon.id,
       name: resPokemon.name,
       type: resPokemon.types[0].type.name,
       image: resPokemon.sprites.front_default,
     };
-    await pokeBase.push(pokemon);
+    await base.push(pokemon);
   }
-  return pokeBase;
+  return base;
 };
 
 export const chosePokemon = async (name: string) => {
@@ -33,5 +38,4 @@ export const chosePokemon = async (name: string) => {
     abilities: resPokemon.abilities,
   };
   return pokemon;
-  //   await setModalActive(true);
 };

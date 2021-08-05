@@ -5,7 +5,6 @@ import PokeCard from './PokeCard';
 
 type PokeArr = {
   pokeList: IPokemon[];
-  cardsPerPage: number;
   chose: (name: string) => void;
   nameQuery: string;
   typesQuery: string[];
@@ -14,7 +13,6 @@ type PokeArr = {
 
 const PokeList: React.FC<PokeArr> = ({
   pokeList,
-  cardsPerPage,
   chose,
   nameQuery,
   typesQuery,
