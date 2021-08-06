@@ -2,7 +2,7 @@ import { Button, Container } from '@material-ui/core';
 import React from 'react';
 
 type Start = {
-  close: React.Dispatch<React.SetStateAction<Boolean>>;
+  close: React.Dispatch<React.SetStateAction<boolean>>;
   showCards: React.Dispatch<React.SetStateAction<number>>;
 };
 

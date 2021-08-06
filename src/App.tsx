@@ -4,17 +4,28 @@ import PokeList from './components/PokeList';
 import Buttons from './components/Buttons';
 import PokeInfo from './components/PokeInfo';
 import Pagination from './components/Pagination';
-import { chosePokemon, fetchBase } from './promiseAll';
+import { chosePokemon, fetchBase } from './fetchPokemons';
 import Welcome from './components/Welcome';
 
 const App: React.FC = () => {
-  const [welcome, setWelcome] = useState<Boolean>(true);
+  const [welcome, setWelcome] = useState<boolean>(true);
   const [loading, setLoading] = useState<boolean>(true);
   const [pokeBase, setPokeBase] = useState<IPokemon[]>([]);
   const [cardsPerPage, setCardsPerPage] = useState<number>(1);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [modalActive, setModalActive] = useState<boolean>(false);
-  const [chosenPokemon, setChosenPokemon] = useState<ICard>(Object);
+  const [chosenPokemon, setChosenPokemon] = useState<ICard>({
+    name: '',
+    image: '',
+    types: [],
+    hp: 0,
+    attack: 0,
+    defense: 0,
+    spedialAttack: 0,
+    specialDefende: 0,
+    speed: 0,
+    abilities: [],
+  });
   const [nameQuery, setNameQuery] = useState<string>('');
   const [typeFilter, setTypeFilter] = useState<string[]>([]);
 
@@ -22,10 +33,10 @@ const App: React.FC = () => {
   const firstCardIndex = lastCardIndex - cardsPerPage;
   const currentCard = pokeBase.slice(firstCardIndex, lastCardIndex);
 
-  const loadPokemons = async (apiBase: IPokemon[]) => {
-    await fetchBase(apiBase);
+  const loadPokemons = async () => {
+    await fetchBase(pokeBase);
     await setLoading(false);
-    await setPokeBase(apiBase);
+    await setPokeBase(pokeBase);
   };
   const loadPokemon = async (name: string) => {
     const poke = await chosePokemon(name);
@@ -35,12 +46,12 @@ const App: React.FC = () => {
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
-  const selectcardsPerPage = (num: number) => {
+  const selectCardsPerPage = (num: number) => {
     setCardsPerPage(num);
   };
 
   useEffect(() => {
-    loadPokemons(pokeBase);
+    loadPokemons();
   }, []);
 
   if (welcome) {
@@ -49,7 +60,7 @@ const App: React.FC = () => {
     return (
       <div className="App">
         <Buttons
-          count={selectcardsPerPage}
+          count={selectCardsPerPage}
           searchByName={setNameQuery}
           searchByTypes={setTypeFilter}
         />
@@ -66,14 +77,12 @@ const App: React.FC = () => {
           totalPokemons={pokeBase.length}
           paginate={paginate}
         />
-        {modalActive ? (
+        {modalActive && (
           <PokeInfo
             active={modalActive}
             setActive={setModalActive}
             pokemon={chosenPokemon}
           />
-        ) : (
-          <></>
         )}
       </div>
     );

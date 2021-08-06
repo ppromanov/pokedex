@@ -4,7 +4,7 @@ const api = 'https://pokeapi.co/api/v2/pokemon';
 
 export const fetchBase = async (base: IPokemon[]) => {
   let pokeArr: any[];
-  const res = await fetch(`${api}/?offset=0&limit=1118`);
+  const res = await fetch(`${api}/?offset=0&limit=2000`);
   const resPokemons = await res.json();
   pokeArr = Object.values(resPokemons.results);
 
